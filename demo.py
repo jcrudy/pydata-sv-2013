@@ -8,7 +8,7 @@ from pyearth import Earth
 from matplotlib import pyplot
 m = 1000
 x = 20*(numpy.random.uniform(size=(m,1)) - .5)
-y = x[:,0]*(x[:,0]<0)*-1 + x[:,0]*(x[:,0]>0)*2 + 10*numpy.random.normal(size=m)
+y = x[:,0]*(x[:,0]<0) + x[:,0]*(x[:,0]>0) + 1*numpy.random.normal(size=m)
 print y.shape
 print y.dtype
 print y

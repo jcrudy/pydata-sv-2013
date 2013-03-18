@@ -4,3 +4,15 @@ Humor-Sans.ttf
 .pydevproject
 
 .project
+
+.DS_Store
+
+housing_example/housing.csv
+
+wine_example/winequality-red.csv
+
+wine_example/winequality-white.csv
+
+song_year_example/YearPredictionMSD.txt.zip
+
+song_year_example/YearPredictionMSD.txt
