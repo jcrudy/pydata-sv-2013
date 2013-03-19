@@ -7,21 +7,14 @@ import numpy
 from pyearth import Earth
 from matplotlib import pyplot
 from xkcdify import XKCDify
-
-
-from mpl_toolkits.mplot3d import axes3d
-import matplotlib.pyplot as plt
-import numpy as np
-
-fig = plt.figure()
-ax = fig.add_subplot(111, projection='3d')
-
-ax.plot_wireframe(X, Y, Z, rstride=10, cstride=10)
-
-plt.show()
-
-
-
+'''
+(Intercept)                   No      8.36475      
+h(x6-1.13136)                 No      -6.86652     
+h(1.13136-x6)                 No      15.4224      
+h(x6+8.56802)*h(1.13136-x6)   No      -1.00847     
+h(-8.56802-x6)*h(1.13136-x6)  No      1.00063      
+x6*h(x6-1.13136)              No      0.999736  
+'''
 m = 1000
 x = numpy.arange(-10,10,.1)
 y = (x-1)*(x>1)*(x-1)*(x>1) + (1-x)*(x<1)*(1-x)*(x<1)

@@ -7,25 +7,34 @@ import numpy
 from pyearth import Earth
 from matplotlib import pyplot
 from xkcdify import XKCDify
-'''
-(Intercept)                   No      8.36475      
-h(x6-1.13136)                 No      -6.86652     
-h(1.13136-x6)                 No      15.4224      
-h(x6+8.56802)*h(1.13136-x6)   No      -1.00847     
-h(-8.56802-x6)*h(1.13136-x6)  No      1.00063      
-x6*h(x6-1.13136)              No      0.999736  
-'''
-m = 1000
+
+
+from mpl_toolkits.mplot3d import axes3d
+import matplotlib.pyplot as plt
+import numpy as np
+
+fig = plt.figure()
+ax = fig.add_subplot(111, projection='3d')
 x = numpy.arange(-10,10,.1)
-y = (x-1)*(x>1)*(x-1)*(x>1) + (1-x)*(x<1)*(1-x)*(x<1)
-#y = 8 - 6*(x-1)*(x>1) + 15*(1-x)*(x<1) - 1*(x+8)*(x>-8)*(1-x)*(x<1) + 1*(-8-x)*(x<-8)*(1-x)*(x<1) + x*(x-1)*(x>1)
+y = numpy.arange(-10,10,.1)
+x, y = np.meshgrid(x,y)
+z = (-3-x)*(x<-3) + (-3-x)*(x<-3)*(5-y)*(y<5)
+ax.plot_wireframe(x,y,z, rstride=10, cstride=10)
 
-pyplot.figure(figsize=(10,5))
-pyplot.plot(x,y)
-ax = pyplot.gca()
-XKCDify(ax)
-pyplot.savefig('demo4.pdf',transparent=True)
+#plt.show()
 
+
+#
+#m = 1000
+#x = numpy.arange(-10,10,.1)
+#y = (x-1)*(x>1)*(x-1)*(x>1) + (1-x)*(x<1)*(1-x)*(x<1)
+##y = 8 - 6*(x-1)*(x>1) + 15*(1-x)*(x<1) - 1*(x+8)*(x>-8)*(1-x)*(x<1) + 1*(-8-x)*(x<-8)*(1-x)*(x<1) + x*(x-1)*(x>1)
+#
+#pyplot.figure(figsize=(10,5))
+#pyplot.plot(x,y)
+#ax = pyplot.gca()
+#XKCDify(ax)
+pyplot.savefig('demo5.pdf',transparent=True)
 
 
 
