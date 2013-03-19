@@ -15,6 +15,7 @@ pyplot.figure(figsize=(10,5))
 pyplot.plot(x,y)
 ax = pyplot.gca()
 XKCDify(ax)
+pyplot.setp(ax, frame_on=False)
 pyplot.savefig('demo2.pdf',transparent=True)
 
 
